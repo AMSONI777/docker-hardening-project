@@ -1,0 +1,39 @@
+# --- Stage 1: The "Builder" Stage ---
+# We start from the full Python image, which contains all the build tools
+# and development libraries needed to install our dependencies.
+# We name this stage "builder" so we can refer to it later.
+FROM python:3.12 AS builder
+
+# Set the working directory
+WORKDIR /app
+
+# Install dependencies. This happens in the "builder" stage only.
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the application code into the builder stage
+COPY . .
+
+
+# --- Stage 2: The "Final" Production Stage ---
+# Now, we start fresh from a minimal, lightweight "slim" image.
+# This image does NOT contain the build tools or extra libraries.
+FROM python:3.12-slim
+
+# Set the working directory for the final image
+WORKDIR /app
+
+# The most important command: Copy ONLY the necessary files from the "builder" stage.
+# We copy the installed Python libraries from the builder...
+COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+# ...and we copy our application code.
+COPY --from=builder /app .
+
+# All the build tools and the larger OS from the "builder" are left behind.
+# Our final image is now "hardened" because its attack surface is dramatically smaller.
+
+# Expose the application port
+EXPOSE 5000
+
+# The command to run the application
+CMD ["python", "app.py"]
