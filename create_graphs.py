@@ -5,8 +5,7 @@ from collections import Counter
 import sys
 
 # --- Configuration ---
-# These are the only values you need to provide manually.
-# Image sizes must be provided here because they are not in the Trivy report.
+# Image sizes is provided here because they are not in the Trivy report.
 BASELINE_IMAGE_SIZE_MB = 1760  # Your value from 'docker images'
 HARDENED_IMAGE_SIZE_MB = 388   # Your value from 'docker images'
 
@@ -84,7 +83,7 @@ def create_vulnerability_charts(baseline_vulns, hardened_vulns):
     plt.close()
     print("Chart 'total_vulnerabilities_comparison.png' has been saved.")
 
-    # --- Chart 3: Detailed Vulnerability Breakdown by Severity ---
+    # --- Chart 3: Detailed Vulnerability by Severity ---
     severities = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'] # Order for the chart
     baseline_counts = [baseline_vulns.get(s, 0) for s in severities]
     hardened_counts = [hardened_vulns.get(s, 0) for s in severities]

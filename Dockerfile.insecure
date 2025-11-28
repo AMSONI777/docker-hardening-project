@@ -1,21 +1,21 @@
 # --- Insecure Single-Stage Build ---
 
-# Use the full Python image, which includes the OS, compilers, and build tools
+# Using the full Python image, which includes the OS, compilers, and build tools
 FROM python:3.12
 
-# Set the working directory inside the container
+# Setting the working directory inside the container
 WORKDIR /app
 
-# Copy the requirements file into the container
+# Copying the requirements file into the container
 COPY requirements.txt .
 
-# Install the Python dependencies
+# Installing the Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the entire application source code into the container
+# Copying the entire application source code into the container
 COPY . .
 
-# Tell Docker that the container listens on port 5000
+# Telling the Docker that the container listens on port 5000
 EXPOSE 5000
 
 # The command to run when the container starts
