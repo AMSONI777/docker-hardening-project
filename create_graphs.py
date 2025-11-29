@@ -5,7 +5,7 @@ from collections import Counter
 import sys
 
 # --- Configuration ---
-# Image sizes is provided here because they are not in the Trivy report.
+# Image sizes is provided here because they are not in the Trivy report. It needs to be hardcoded.
 BASELINE_IMAGE_SIZE_MB = 1970
 HARDENED_IMAGE_SIZE_MB = 555
 
