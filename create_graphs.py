@@ -6,8 +6,8 @@ import sys
 
 # --- Configuration ---
 # Image sizes is provided here because they are not in the Trivy report.
-BASELINE_IMAGE_SIZE_MB = 1760  # Your value from 'docker images'
-HARDENED_IMAGE_SIZE_MB = 388   # Your value from 'docker images'
+BASELINE_IMAGE_SIZE_MB = 1970
+HARDENED_IMAGE_SIZE_MB = 555
 
 # Filenames of the Trivy JSON reports
 BASELINE_JSON_FILE = 'trivy-scan-results.json'

@@ -1,15 +1,15 @@
 {
   "SchemaVersion": 2,
-  "CreatedAt": "2025-11-27T16:08:42.8125376-06:00",
+  "CreatedAt": "2025-11-28T20:27:51.6787494-06:00",
   "ArtifactName": "hardened-app",
   "ArtifactType": "container_image",
   "Metadata": {
-    "Size": 267272704,
+    "Size": 385697792,
     "OS": {
       "Family": "debian",
       "Name": "13.2"
     },
-    "ImageID": "sha256:64581d5c6920901669ced6888bcdcfc80761f8c5b24c97e8ac1325a222a2b487",
+    "ImageID": "sha256:2369199fae078738d123a6845c97fe552bb683102a6529ba74f2ff2a3012c363",
     "DiffIDs": [
       "sha256:70a290c5e58b68f39496ab93a62f21b8b2ca0502e97905131838de1b39a37cbb",
       "sha256:ae5637ef40a1f05635c94c972959f0b21ed1120dbcfa4bc8ef9f8ae771b58d0b",
@@ -17,17 +17,17 @@
       "sha256:e269231b9601ce7d6942e0a22164f1fbbbfbcb2cba6d89da875f151713921171",
       "sha256:d4937a8d6cb886179d0651ec40fcc9ab1a09bd61f33230fab2002f7e93daf37d",
       "sha256:760b37f0b8ca8c2d5592f508d93167877da1139a820d5049cb5f4d97be20fc79",
-      "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+      "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
     ],
     "RepoTags": [
       "hardened-app:latest"
     ],
     "RepoDigests": [
-      "hardened-app@sha256:64581d5c6920901669ced6888bcdcfc80761f8c5b24c97e8ac1325a222a2b487"
+      "hardened-app@sha256:2369199fae078738d123a6845c97fe552bb683102a6529ba74f2ff2a3012c363"
     ],
     "ImageConfig": {
       "architecture": "amd64",
-      "created": "2025-11-27T21:42:25.218338798Z",
+      "created": "2025-11-29T02:15:30.064182707Z",
       "history": [
         {
           "created": "2025-11-17T00:00:00Z",
@@ -96,18 +96,18 @@
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-11-27T21:42:25Z",
+          "created": "2025-11-29T02:15:30Z",
           "created_by": "COPY /app . # buildkit",
           "comment": "buildkit.dockerfile.v0"
         },
         {
-          "created": "2025-11-27T21:42:25Z",
+          "created": "2025-11-29T02:15:30Z",
           "created_by": "EXPOSE [5000/tcp]",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
         },
         {
-          "created": "2025-11-27T21:42:25Z",
+          "created": "2025-11-29T02:15:30Z",
           "created_by": "CMD [\"python\" \"app.py\"]",
           "comment": "buildkit.dockerfile.v0",
           "empty_layer": true
@@ -123,7 +123,7 @@
           "sha256:e269231b9601ce7d6942e0a22164f1fbbbfbcb2cba6d89da875f151713921171",
           "sha256:d4937a8d6cb886179d0651ec40fcc9ab1a09bd61f33230fab2002f7e93daf37d",
           "sha256:760b37f0b8ca8c2d5592f508d93167877da1139a820d5049cb5f4d97be20fc79",
-          "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+          "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
         ]
       },
       "config": {
@@ -177,9 +177,9 @@
         "DiffID": "sha256:760b37f0b8ca8c2d5592f508d93167877da1139a820d5049cb5f4d97be20fc79"
       },
       {
-        "Size": 103249408,
-        "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-        "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+        "Size": 221674496,
+        "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+        "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
       }
     ]
   },
@@ -10134,8 +10134,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/.venv/Lib/site-packages/flask-3.1.2.dist-info/METADATA"
         },
@@ -10150,8 +10150,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/venv/Lib/site-packages/flask-3.1.2.dist-info/METADATA"
         },
@@ -10182,8 +10182,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/.venv/Lib/site-packages/flask_sqlalchemy-3.1.1.dist-info/METADATA"
         },
@@ -10198,8 +10198,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/venv/Lib/site-packages/flask_sqlalchemy-3.1.1.dist-info/METADATA"
         },
@@ -10230,8 +10230,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/.venv/Lib/site-packages/jinja2-3.1.6.dist-info/METADATA"
         },
@@ -10246,8 +10246,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/venv/Lib/site-packages/jinja2-3.1.6.dist-info/METADATA"
         },
@@ -10278,8 +10278,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/.venv/Lib/site-packages/markupsafe-3.0.3.dist-info/METADATA"
         },
@@ -10294,8 +10294,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/venv/Lib/site-packages/markupsafe-3.0.3.dist-info/METADATA"
         },
@@ -10326,8 +10326,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/.venv/Lib/site-packages/sqlalchemy-2.0.44.dist-info/METADATA"
         },
@@ -10342,8 +10342,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/venv/Lib/site-packages/sqlalchemy-2.0.44.dist-info/METADATA"
         },
@@ -10374,8 +10374,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/.venv/Lib/site-packages/werkzeug-3.1.3.dist-info/METADATA"
         },
@@ -10390,8 +10390,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/venv/Lib/site-packages/werkzeug-3.1.3.dist-info/METADATA"
         },
@@ -10422,8 +10422,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/.venv/Lib/site-packages/blinker-1.9.0.dist-info/METADATA"
         },
@@ -10438,8 +10438,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/venv/Lib/site-packages/blinker-1.9.0.dist-info/METADATA"
         },
@@ -10470,8 +10470,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/.venv/Lib/site-packages/click-8.3.0.dist-info/METADATA"
         },
@@ -10486,8 +10486,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/venv/Lib/site-packages/click-8.3.0.dist-info/METADATA"
         },
@@ -10518,8 +10518,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/.venv/Lib/site-packages/colorama-0.4.6.dist-info/METADATA"
         },
@@ -10534,10 +10534,58 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/venv/Lib/site-packages/colorama-0.4.6.dist-info/METADATA"
+        },
+        {
+          "Name": "contourpy",
+          "Identifier": {
+            "PURL": "pkg:pypi/contourpy@1.3.3",
+            "UID": "efac00613bf90d80"
+          },
+          "Version": "1.3.3",
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Layer": {
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
+          },
+          "FilePath": "app/venv/Lib/site-packages/contourpy-1.3.3.dist-info/METADATA"
+        },
+        {
+          "Name": "cycler",
+          "Identifier": {
+            "PURL": "pkg:pypi/cycler@0.12.1",
+            "UID": "6f0322a7b3813887"
+          },
+          "Version": "0.12.1",
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Layer": {
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
+          },
+          "FilePath": "app/venv/Lib/site-packages/cycler-0.12.1.dist-info/METADATA"
+        },
+        {
+          "Name": "fonttools",
+          "Identifier": {
+            "PURL": "pkg:pypi/fonttools@4.60.1",
+            "UID": "afc6711d278ec4bf"
+          },
+          "Version": "4.60.1",
+          "Licenses": [
+            "MIT"
+          ],
+          "Layer": {
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
+          },
+          "FilePath": "app/venv/Lib/site-packages/fonttools-4.60.1.dist-info/METADATA"
         },
         {
           "Name": "greenlet",
@@ -10550,8 +10598,8 @@
             "MIT AND Python-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/.venv/Lib/site-packages/greenlet-3.2.4.dist-info/METADATA"
         },
@@ -10566,8 +10614,8 @@
             "MIT AND Python-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/venv/Lib/site-packages/greenlet-3.2.4.dist-info/METADATA"
         },
@@ -10598,8 +10646,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/.venv/Lib/site-packages/itsdangerous-2.2.0.dist-info/METADATA"
         },
@@ -10614,8 +10662,8 @@
             "BSD-3-Clause"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/venv/Lib/site-packages/itsdangerous-2.2.0.dist-info/METADATA"
         },
@@ -10636,6 +10684,87 @@
           "FilePath": "usr/local/lib/python3.12/site-packages/itsdangerous-2.2.0.dist-info/METADATA"
         },
         {
+          "Name": "kiwisolver",
+          "Identifier": {
+            "PURL": "pkg:pypi/kiwisolver@1.4.9",
+            "UID": "51f7d8f674a29c22"
+          },
+          "Version": "1.4.9",
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Layer": {
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
+          },
+          "FilePath": "app/venv/Lib/site-packages/kiwisolver-1.4.9.dist-info/METADATA"
+        },
+        {
+          "Name": "matplotlib",
+          "Identifier": {
+            "PURL": "pkg:pypi/matplotlib@3.10.7",
+            "UID": "576ac62248973734"
+          },
+          "Version": "3.10.7",
+          "Licenses": [
+            "Python Software Foundation License"
+          ],
+          "Layer": {
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
+          },
+          "FilePath": "app/venv/Lib/site-packages/matplotlib-3.10.7.dist-info/METADATA"
+        },
+        {
+          "Name": "numpy",
+          "Identifier": {
+            "PURL": "pkg:pypi/numpy@2.3.5",
+            "UID": "699dba13d0ca4747"
+          },
+          "Version": "2.3.5",
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Layer": {
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
+          },
+          "FilePath": "app/venv/Lib/site-packages/numpy-2.3.5.dist-info/METADATA"
+        },
+        {
+          "Name": "packaging",
+          "Identifier": {
+            "PURL": "pkg:pypi/packaging@25.0",
+            "UID": "84e8906df90f4e3f"
+          },
+          "Version": "25.0",
+          "Licenses": [
+            "Apache-2.0",
+            "BSD-3-Clause"
+          ],
+          "Layer": {
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
+          },
+          "FilePath": "app/venv/Lib/site-packages/packaging-25.0.dist-info/METADATA"
+        },
+        {
+          "Name": "pillow",
+          "Identifier": {
+            "PURL": "pkg:pypi/pillow@12.0.0",
+            "UID": "34026b268ae6217e"
+          },
+          "Version": "12.0.0",
+          "Licenses": [
+            "MIT-CMU"
+          ],
+          "Layer": {
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
+          },
+          "FilePath": "app/venv/Lib/site-packages/pillow-12.0.0.dist-info/METADATA"
+        },
+        {
           "Name": "pip",
           "Identifier": {
             "PURL": "pkg:pypi/pip@24.2",
@@ -10646,8 +10775,8 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/venv/Lib/site-packages/pip-24.2.dist-info/METADATA"
         },
@@ -10678,10 +10807,59 @@
             "MIT"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/.venv/Lib/site-packages/pip-25.3.dist-info/METADATA"
+        },
+        {
+          "Name": "pyparsing",
+          "Identifier": {
+            "PURL": "pkg:pypi/pyparsing@3.2.5",
+            "UID": "dd78b2dbd0bf3b93"
+          },
+          "Version": "3.2.5",
+          "Licenses": [
+            "MIT"
+          ],
+          "Layer": {
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
+          },
+          "FilePath": "app/venv/Lib/site-packages/pyparsing-3.2.5.dist-info/METADATA"
+        },
+        {
+          "Name": "python-dateutil",
+          "Identifier": {
+            "PURL": "pkg:pypi/python-dateutil@2.9.0.post0",
+            "UID": "8039e2d3470e4d13"
+          },
+          "Version": "2.9.0.post0",
+          "Licenses": [
+            "BSD-3-Clause",
+            "Apache-2.0"
+          ],
+          "Layer": {
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
+          },
+          "FilePath": "app/venv/Lib/site-packages/python_dateutil-2.9.0.post0.dist-info/METADATA"
+        },
+        {
+          "Name": "six",
+          "Identifier": {
+            "PURL": "pkg:pypi/six@1.17.0",
+            "UID": "c6793a4b49df13b6"
+          },
+          "Version": "1.17.0",
+          "Licenses": [
+            "MIT"
+          ],
+          "Layer": {
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
+          },
+          "FilePath": "app/venv/Lib/site-packages/six-1.17.0.dist-info/METADATA"
         },
         {
           "Name": "typing_extensions",
@@ -10694,8 +10872,8 @@
             "PSF-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/.venv/Lib/site-packages/typing_extensions-4.15.0.dist-info/METADATA"
         },
@@ -10710,8 +10888,8 @@
             "PSF-2.0"
           ],
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "FilePath": "app/venv/Lib/site-packages/typing_extensions-4.15.0.dist-info/METADATA"
         },
@@ -10745,8 +10923,8 @@
           "FixedVersion": "25.3",
           "Status": "fixed",
           "Layer": {
-            "Digest": "sha256:b1d716075408b36754fa159ff0de1b84849e529f84503f0e96e6d9c0fdca28b2",
-            "DiffID": "sha256:d194458a8a6ced9c0da4cec3c96336067ce1c0814adfdc2e7878df49efece527"
+            "Digest": "sha256:b9a54f5db2a940f3e3869087b003d62a164e879e7ea140b01271be333ab8c3d3",
+            "DiffID": "sha256:ed4c7b43f4d791728063e1b62d810fb191e068929a523eeb6d9f3d59cd272c6a"
           },
           "SeveritySource": "ghsa",
           "PrimaryURL": "https://avd.aquasec.com/nvd/cve-2025-8869",
