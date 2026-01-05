@@ -1,0 +1,36 @@
+# --- Stage 1: The "Builder" Stage (Alpine) ---
+# We use an Alpine base image, which is much smaller than Debian.
+FROM python:3.12-alpine AS builder
+
+# Alpine's package manager is 'apk'. We need to install build tools
+# like the gcc compiler so 'pip' can build our dependencies.
+RUN apk add --no-cache gcc musl-dev
+
+# Set the working directory
+WORKDIR /app
+
+# Copy and install requirements
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the application code
+COPY . .
+
+
+# --- Stage 2: The "Final" Production Stage (Alpine) ---
+# We start fresh from the same minimal Alpine base.
+FROM python:3.12-alpine
+
+# Set the working directory
+WORKDIR /app
+
+# Copy ONLY the installed Python libraries and the application code from the builder.
+# All the build tools (gcc, etc.) are left behind.
+COPY --from=builder /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+COPY --from=builder /app .
+
+# Expose the application port
+EXPOSE 5000
+
+# The command to run the application
+CMD ["python", "app.py"]

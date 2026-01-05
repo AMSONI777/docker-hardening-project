@@ -1,0 +1,23 @@
+# Ignore the Python virtual environment
+venv/
+.venv/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore all .txt files...
+*.txt
+# ... EXCEPT for requirements.txt
+!requirements.txt
+
+# Ignore JSON reports and charts
+*.json
+*.png
+
+# Ignore Git files
+.git/
+.gitignore
