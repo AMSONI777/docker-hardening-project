@@ -1,0 +1,54 @@
+IMAGE          CREATED       CREATED BY                                      SIZE      COMMENT
+433b8aefb7c2   5 hours ago   CMD ["app.py"]                                  0B        buildkit.dockerfile.v0
+<missing>      5 hours ago   EXPOSE [5000/tcp]                               0B        buildkit.dockerfile.v0
+<missing>      5 hours ago   COPY /app . # buildkit                          69.6kB    buildkit.dockerfile.v0
+<missing>      5 hours ago   COPY /install /install # buildkit               32.4MB    buildkit.dockerfile.v0
+<missing>      5 hours ago   ENV PATH=/install/bin:/usr/local/sbin:/usr/l…   0B        buildkit.dockerfile.v0
+<missing>      5 hours ago   ENV PYTHONUSERBASE=/install                     0B        buildkit.dockerfile.v0
+<missing>      5 hours ago   WORKDIR /app                                    8.19kB    buildkit.dockerfile.v0
+<missing>      N/A                                                           12.3kB    
+<missing>      N/A                                                           16.4kB    
+<missing>      N/A                                                           5.67MB    
+<missing>      N/A                                                           274kB     
+<missing>      N/A                                                           520kB     
+<missing>      N/A                                                           8.71MB    
+<missing>      N/A                                                           5.66MB    
+<missing>      N/A                                                           176kB     
+<missing>      N/A                                                           315kB     
+<missing>      N/A                                                           213kB     
+<missing>      N/A                                                           1.17MB    
+<missing>      N/A                                                           90.1kB    
+<missing>      N/A                                                           344kB     
+<missing>      N/A                                                           516kB     
+<missing>      N/A                                                           111kB     
+<missing>      N/A                                                           279kB     
+<missing>      N/A                                                           147kB     
+<missing>      N/A                                                           213kB     
+<missing>      N/A                                                           868kB     
+<missing>      N/A                                                           594kB     
+<missing>      N/A                                                           446kB     
+<missing>      N/A                                                           180kB     
+<missing>      N/A                                                           1.6MB     
+<missing>      N/A                                                           332kB     
+<missing>      N/A                                                           471kB     
+<missing>      N/A                                                           1.92MB    
+<missing>      N/A                                                           3.97MB    
+<missing>      N/A                                                           156kB     
+<missing>      N/A                                                           287kB     
+<missing>      N/A                                                           164kB     
+<missing>      N/A                                                           2.08MB    
+<missing>      N/A                                                           307kB     
+<missing>      N/A                                                           1.63MB    
+<missing>      N/A                                                           4.04MB    
+<missing>      N/A                                                           13.3MB    
+<missing>      N/A                                                           254kB     
+<missing>      N/A                                                           16.4kB    
+<missing>      N/A                                                           12.3kB    
+<missing>      N/A                                                           8.19kB    
+<missing>      N/A                                                           12.3kB    
+<missing>      N/A                                                           16.4kB    
+<missing>      N/A                                                           12.3kB    
+<missing>      N/A                                                           4.1kB     
+<missing>      N/A                                                           6.21MB    
+<missing>      N/A                                                           94.2kB    
+<missing>      N/A                                                           582kB     
