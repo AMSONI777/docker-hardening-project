@@ -5,119 +5,133 @@ from collections import Counter
 import sys
 
 # --- Configuration ---
-# Image sizes is provided here because they are not in the Trivy report. It needs to be hardcoded.
-BASELINE_IMAGE_SIZE_MB = 1970
-HARDENED_IMAGE_SIZE_MB = 555
+# Update these values with the final sizes from your 'docker images' command.
+IMAGE_SIZES_MB = {
+    'Baseline (Debian)': 1650,  # 1.65GB
+    'Hardened (Debian Slim)': 233,
+    'Hardened (Alpine)': 125,
+    'Hardened (Distroless)': 130
+}
 
 # Filenames of the Trivy JSON reports
-BASELINE_JSON_FILE = 'trivy-scan-results.json'
-HARDENED_JSON_FILE = 'trivy-scan-results-hardened.json'
+JSON_FILES = {
+    'Baseline (Debian)': 'insecure-app-results.json',
+    'Hardened (Debian Slim)': 'hardened-app-results.json',
+    'Hardened (Alpine)': 'alpine-app-results.json',
+    'Hardened (Distroless)': 'distroless-app-results.json'
+}
 
+# --- Chart Styling ---
+COLORS = ['#d9534f', '#5cb85c', '#f0ad4e', '#5bc0de'] # Red, Green, Yellow, Blue
+plt.style.use('seaborn-v0_8-whitegrid') # Professional plot style
 
 def parse_trivy_json(filename):
-    """Reads a Trivy JSON report and returns a dictionary of severity counts."""
+    """Reads a Trivy JSON report and returns vuln counts and package count."""
     severity_counts = Counter()
+    package_count = 0
     try:
         with open(filename, 'r', encoding='utf-8') as f:
             data = json.load(f)
         
         if 'Results' in data and isinstance(data['Results'], list):
             for result in data['Results']:
+                # Count OS packages
+                if result.get('Type') in ['debian', 'alpine']:
+                    package_count += len(result.get('Packages', []))
+                
+                # Count vulnerabilities
                 if 'Vulnerabilities' in result and result['Vulnerabilities'] is not None:
                     for vuln in result['Vulnerabilities']:
                         severity = vuln.get('Severity', 'UNKNOWN')
                         severity_counts[severity] += 1
-        return severity_counts
-    except FileNotFoundError:
-        print(f"Error: The file '{filename}' was not found. Please generate the report first.")
-        sys.exit(1)
-    except json.JSONDecodeError:
-        print(f"Error: Could not decode the JSON from '{filename}'. It may be corrupted.")
-        sys.exit(1)
+        return severity_counts, package_count
+    except (FileNotFoundError, json.JSONDecodeError) as e:
+        print(f"Error processing {filename}: {e}")
+        return Counter(), 0
 
-
-def create_image_size_chart(baseline_size, hardened_size):
-    """Generates and saves a bar chart for image size comparison."""
-    labels = ['Baseline (insecure-app)', 'Hardened (hardened-app)']
-    sizes = [baseline_size, hardened_size]
-    colors = ['#d9534f', '#5cb85c']
-
-    plt.figure(figsize=(8, 6))
-    bars = plt.bar(labels, sizes, color=colors)
-    plt.ylabel('Image Size (MB)')
-    plt.title('Docker Image Size Comparison', fontsize=16, fontweight='bold')
-    plt.grid(axis='y', linestyle='--', alpha=0.7)
-
-    for bar in bars:
-        yval = bar.get_height()
-        plt.text(bar.get_x() + bar.get_width()/2.0, yval + 15, f'{yval} MB', ha='center', va='bottom')
-
-    plt.tight_layout()
-    plt.savefig('image_size_comparison.png')
-    plt.close()
-    print("Chart 'image_size_comparison.png' has been saved.")
-
-
-def create_vulnerability_charts(baseline_vulns, hardened_vulns):
-    """Generates charts for total and per-severity vulnerability comparisons."""
-    baseline_total = sum(baseline_vulns.values())
-    hardened_total = sum(hardened_vulns.values())
+def create_chart(title, ylabel, labels, data, filename, is_log=False):
+    """Generic function to create and save a professional bar chart."""
+    plt.figure(figsize=(10, 7))
+    bars = plt.bar(labels, data, color=COLORS)
     
-    # --- Chart 2: Total Vulnerability Comparison ---
-    labels = ['Baseline (insecure-app)', 'Hardened (hardened-app)']
-    totals = [baseline_total, hardened_total]
-    colors = ['#d9534f', '#5cb85c']
+    plt.title(title, fontsize=16, fontweight='bold', pad=20)
+    plt.ylabel(ylabel, fontsize=12)
+    plt.xticks(rotation=8, ha='right')
+    
+    if is_log:
+        plt.yscale('log')
+        plt.minorticks_off() # clean up log scale ticks
 
-    plt.figure(figsize=(8, 6))
-    bars = plt.bar(labels, totals, color=colors)
-    plt.ylabel('Total Vulnerability Count')
-    plt.title('Total Vulnerability Comparison', fontsize=16, fontweight='bold')
-    plt.grid(axis='y', linestyle='--', alpha=0.7)
-
+    # Add data labels
     for bar in bars:
-        yval = bar.get_height()
-        plt.text(bar.get_x() + bar.get_width()/2.0, yval + 10, int(yval), ha='center', va='bottom')
-
-    plt.tight_layout()
-    plt.savefig('total_vulnerabilities_comparison.png')
+        height = bar.get_height()
+        plt.text(bar.get_x() + bar.get_width() / 2.0, height, f'{height:,.0f}', 
+                 ha='center', va='bottom', fontsize=10, fontweight='bold')
+    
+    plt.tight_layout(pad=2.0)
+    plt.savefig(filename, dpi=300) # Save in high resolution
     plt.close()
-    print("Chart 'total_vulnerabilities_comparison.png' has been saved.")
+    print(f"Chart '{filename}' has been saved.")
 
-    # --- Chart 3: Detailed Vulnerability by Severity ---
-    severities = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'] # Order for the chart
-    baseline_counts = [baseline_vulns.get(s, 0) for s in severities]
-    hardened_counts = [hardened_vulns.get(s, 0) for s in severities]
-
-    x = np.arange(len(severities))
-    width = 0.35
-
-    fig, ax = plt.subplots(figsize=(10, 6))
-    rects1 = ax.bar(x - width/2, baseline_counts, width, label='Baseline', color='#d9534f')
-    rects2 = ax.bar(x + width/2, hardened_counts, width, label='Hardened', color='#5cb85c')
-
+def create_grouped_chart(title, labels, data_dict, filename):
+    """Creates a professional grouped bar chart for severity breakdown."""
+    severities = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW']
+    x = np.arange(len(labels))
+    width = 0.2
+    
+    fig, ax = plt.subplots(figsize=(12, 7))
+    
+    for i, severity in enumerate(severities):
+        counts = [data.get(severity, 0) for data in data_dict.values()]
+        offset = width * (i - 1.5)
+        rects = ax.bar(x + offset, counts, width, label=severity)
+        ax.bar_label(rects, padding=3, fontsize=8)
+        
     ax.set_ylabel('Vulnerability Count')
-    ax.set_title('Vulnerability Breakdown by Severity', fontsize=16, fontweight='bold')
+    ax.set_title(title, fontsize=16, fontweight='bold', pad=20)
     ax.set_xticks(x)
-    ax.set_xticklabels(severities)
-    ax.legend()
-    ax.grid(axis='y', linestyle='--', alpha=0.7)
-
-    ax.bar_label(rects1, padding=3)
-    ax.bar_label(rects2, padding=3)
-
-    fig.tight_layout()
-    plt.savefig('vulnerability_severity_comparison.png')
+    ax.set_xticklabels(labels, rotation=8, ha='right')
+    ax.legend(title="Severity")
+    ax.set_yscale('log') # Log scale is best for showing large differences
+    
+    fig.tight_layout(pad=2.0)
+    plt.savefig(filename, dpi=300)
     plt.close()
-    print("Chart 'vulnerability_severity_comparison.png' has been saved.")
-
+    print(f"Chart '{filename}' has been saved.")
 
 if __name__ == '__main__':
+    all_vuln_data = {}
+    all_pkg_data = {}
+
     print("Parsing vulnerability reports...")
-    baseline_vulnerability_data = parse_trivy_json(BASELINE_JSON_FILE)
-    hardened_vulnerability_data = parse_trivy_json(HARDENED_JSON_FILE)
-    
+    for name, filename in JSON_FILES.items():
+        vuln_counts, pkg_count = parse_trivy_json(filename)
+        all_vuln_data[name] = vuln_counts
+        all_pkg_data[name] = pkg_count
+        print(f"  - {name}: {sum(vuln_counts.values())} CVEs, {pkg_count} OS packages")
+
+    # --- Generate Charts ---
     print("\nGenerating result charts...")
-    create_image_size_chart(BASELINE_IMAGE_SIZE_MB, HARDENED_IMAGE_SIZE_MB)
-    create_vulnerability_charts(baseline_vulnerability_data, hardened_vulnerability_data)
     
-    print("\nAll charts have been generated successfully.")
+    # Chart 1: Image Size
+    create_chart('Image Size Comparison', 'Image Size (MB)', 
+                 list(IMAGE_SIZES_MB.keys()), list(IMAGE_SIZES_MB.values()), 
+                 'chart_1_image_size.png')
+
+    # Chart 2: OS Package Count
+    create_chart('OS Package Count Comparison', 'Number of OS Packages', 
+                 list(all_pkg_data.keys()), list(all_pkg_data.values()), 
+                 'chart_2_os_packages.png', is_log=True)
+
+    # Chart 3: Total Vulnerabilities
+    total_vulns = {name: sum(counts.values()) for name, counts in all_vuln_data.items()}
+    create_chart('Total Vulnerability Comparison', 'Total Vulnerability Count (Log Scale)', 
+                 list(total_vulns.keys()), list(total_vulns.values()), 
+                 'chart_3_total_vulnerabilities.png', is_log=True)
+
+    # Chart 4: Severity Breakdown
+    create_grouped_chart('Vulnerability Breakdown by Severity', 
+                         list(all_vuln_data.keys()), all_vuln_data, 
+                         'chart_4_severity_breakdown.png')
+    
+    print("\nAll Phase 2 charts have been generated successfully.")
