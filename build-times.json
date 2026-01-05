@@ -1,0 +1,6 @@
+{
+  "Baseline (Debian)": 8.082458972930908,
+  "Hardened (Debian Slim)": 8.3087158203125,
+  "Hardened (Alpine)": 14.438251495361328,
+  "Hardened (Distroless)": 7.43464469909668
+}
