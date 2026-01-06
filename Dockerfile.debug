@@ -1,0 +1,13 @@
+# This file is ONLY for debugging our builder stage.
+FROM python:3.9-slim AS builder
+
+ENV PYTHONUSERBASE=/install
+ENV PATH="/install/bin:${PATH}"
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir --user -r requirements.txt
+
+# THE DEBUG COMMAND:
+# After installing, run 'ls' to show us the exact directory structure.
+RUN ls -R /install/lib

@@ -1,41 +1,33 @@
 # --- Stage 1: The "Builder" Stage ---
-# We use a slim Debian image as our builder. It's a reliable environment.
-FROM python:3.12-slim AS builder
+# We use Python 3.9 to match the final Distroless image.
+FROM python:3.9-slim AS builder
 
-# Set the working directory
 WORKDIR /app
 
-# IMPORTANT: We tell pip to install packages into a specific local folder '/install'
-# This makes it very easy and reliable to copy them to the distroless image later.
-ENV PYTHONUSERBASE=/install
-ENV PATH="/install/bin:${PATH}"
-
-# Copy and install requirements using the --user flag to respect PYTHONUSERBASE
+# THE CRITICAL CHANGE IS HERE:
+# Instead of installing to a system path, we install all libraries
+# directly into a local directory named 'packages'.
 COPY requirements.txt .
-RUN pip install --no-cache-dir --user -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt --target ./packages
 
 # Copy the application code
-COPY . .
-
+COPY app.py .
 
 # --- Stage 2: The "Final" Production Stage (Distroless) ---
-# We start from a Google Distroless base image. It contains Python but almost nothing else.
+# We use the stable Python 3.9 Distroless image.
 FROM gcr.io/distroless/python3-debian11
 
-# Set the working directory
 WORKDIR /app
 
-# Set the same environment variables so Python can find the packages we're about to copy.
-ENV PYTHONUSERBASE=/install
-ENV PATH="/install/bin:${PATH}"
+# THE SECOND CRITICAL CHANGE:
+# We copy the 'packages' directory and our app.py directly into /app.
+# Now, Flask and all its dependencies are right next to our script.
+COPY --from=builder /app/packages ./packages
+COPY --from=builder /app/app.py .
 
-# Copy ONLY the installed libraries and the application code from the builder.
-# The result is an image with no shell, no package manager, and minimal OS files.
-COPY --from=builder /install /install
-COPY --from=builder /app .
+# We no longer need PYTHONPATH because all modules are in the same folder or a subfolder.
 
-# Expose the application port
 EXPOSE 5000
 
-# The command to run. The distroless base image is configured to run 'python3' by default.
+# The command to run.
 CMD ["app.py"]
