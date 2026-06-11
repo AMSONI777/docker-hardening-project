@@ -87,3 +87,47 @@ Prerequisites: Docker Desktop and Python 3.10+.
 ```bash
 git clone https://github.com/AMSONI777/docker-hardening-project.git
 cd docker-hardening-project
+
+2. Build the Images
+code
+Bash
+# Build the Baseline
+docker build -t insecure-app -f Dockerfile.insecure .
+
+# Build the Hardened Variants
+docker build -t hardened-app -f Dockerfile.secure .
+docker build -t alpine-app -f Dockerfile.alpine .
+docker build -t distroless-app -f Dockerfile.distroless .
+3. Run the Analysis Scripts
+We have automated the scanning and graphing process.
+code
+Bash
+# Install requirements
+pip install -r requirements.txt
+
+# Run scans (Example with Trivy)
+trivy image --format json --output trivy-results-alpine.json alpine-app
+
+# Generate Graphs
+python create_graphs.py
+📄 Research Poster (Oklahoma Research Day 2026)
+This project was presented at Oklahoma Research Day. The academic poster details the full narrative from problem identification to final architectural recommendations.
+![alt text](images/poster_preview.png)
+
+Click here to view the full PDF
+🏆 Conclusion
+This study confirms that Alpine Linux is the optimal hardening strategy for Python web applications.
+Security: Reduced 1,384 CVEs to 1 (99.9% reduction).
+Efficiency: Reduced 1.65 GB to 125 MB (92% reduction).
+Compliance: Reduced 301 licenses to 18, simplifying legal review.
+While Alpine requires a longer build time (14.4s vs 8.1s) due to source compilation, this trade-off is negligible compared to the massive gains in security and maintainability.
+👤 Author
+Amit Soni
+Role: Researcher & DevOps Engineer
+Institution: University of Central Oklahoma
+GitHub: AMSONI777
+Email: asoni2@uco.edu
+This project is licensed under the MIT License - see the LICENSE file for details.
+code
+Code
+
