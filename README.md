@@ -54,7 +54,7 @@ The experiment yielded striking, data-driven insights that challenge common assu
 #### 📉 Attack Surface Reduction (Image Size)
 The **Alpine** strategy achieved a **92.4% reduction** in storage footprint compared to the Baseline configuration.
 
-![Image Size Comparison](images/image_size_comparison.png)
+![Image Size Comparison](images/chart_1_image_size.png)
 
 #### 🛡️ Vulnerability Mitigation
 Hardening with Alpine Linux eliminated **99.9%** of baseline security risks, leaving only a single low-severity vulnerability.
