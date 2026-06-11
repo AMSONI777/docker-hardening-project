@@ -159,8 +159,3 @@ While the Alpine build introduced a performance trade-off—taking **14.4 second
     *   *Role:* Research Advisor
     *   *Institution:* University of Central Oklahoma
     *   *Email:* MPark5@uco.edu
-
----
-
-*This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.*
-```
