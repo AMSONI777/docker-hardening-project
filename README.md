@@ -131,7 +131,6 @@ python create_graphs.py
 This project was presented as an academic poster at Oklahoma Research Day. The presentation details the full narrative, comparing operational trade-offs, OS architectures, and software licensing complexity.
 
 ![Academic Poster](images/Poster_Final_Version_(ORD_2026)_1.png)
-👉 **[Click here to view the full PDF Poster](Poster_Final_Version_(ORD_2026).pdf)**
 
 ---
 
