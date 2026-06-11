@@ -59,7 +59,7 @@ The **Alpine** strategy achieved a **92.4% reduction** in storage footprint comp
 #### 🛡️ Vulnerability Mitigation
 Hardening with Alpine Linux eliminated **99.9%** of baseline security risks, leaving only a single low-severity vulnerability.
 
-![Total Vulnerabilities](images/total_vulnerabilities_comparison.png)
+![Total Vulnerabilities](images/chart_3_total_vulnerabilities.png)
 
 ---
 
