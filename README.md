@@ -1,4 +1,3 @@
-```markdown
 # 🛡️ Reducing Container Risk: A Multi-Dimensional Comparative Analysis of Docker Hardening Strategies
 
 [![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docs.docker.com/)
