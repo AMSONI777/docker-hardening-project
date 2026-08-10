@@ -148,7 +148,7 @@ While the Alpine build introduced a performance trade-off—taking **14.4 second
 ## 👤 Authors
 
 *   **Amit Soni**
-    *   *Role:* Graduate Researcher & DevOps Engineer (Student ID: *20527062)
+    *   *Role:* Graduate Student Researcher
     *   *Institution:* University of Central Oklahoma
     *   *GitHub:* [@AMSONI777](https://github.com/AMSONI777)
     *   *Email:* asoni2@uco.edu
